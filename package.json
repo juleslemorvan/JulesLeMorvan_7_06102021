@@ -1,0 +1,19 @@
+{
+  "name": "juleslemorvan_7_06102021",
+  "version": "1.0.0",
+  "main": "recipes.js",
+  "scripts": {
+    "sass": "sass --watch ./scss/main.scss:./style.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/juleslemorvan/JulesLeMorvan_7_06102021.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/juleslemorvan/JulesLeMorvan_7_06102021/issues"
+  },
+  "homepage": "https://github.com/juleslemorvan/JulesLeMorvan_7_06102021#readme",
+  "description": ""
+}

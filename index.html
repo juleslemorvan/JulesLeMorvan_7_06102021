@@ -3,12 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./style.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=DM+Sans&display=swap"
       rel="stylesheet"
     />
-    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    />
+    <title>Les petits plats</title>
   </head>
   <body>
     <header>
@@ -20,16 +24,62 @@
       <h1 class="header_title">Les petits plats</h1>
     </header>
     <main>
+      <!-- INPUT RECHERCHER -->
       <section class="search">
-        <input type="text" class="searchInput" />
-        <div class="selectButton">
-          <button class="selectButton1"></button>
-          <button class="selectButton2"></button>
-          <button class="selectButton2"></button>
+        <form action="GET" id="search" class="firstForm">
+          <label for="search" class="firstForm-label"></label>
+          <input
+            type="search"
+            class="searchInput"
+            placeholder=" Rechercher un ingrédient, appareil, ustensiles ou une recette "
+          />
+          <span class="search-icon"><i class="fas fa-search"></i></span>
+        </form>
+
+        <!-- BOUTONS SELECT -->
+        <div class="select-container">
+          <div class="select select-ingredients">
+            <button class="selectButton ingredients" id="selectButton">
+              Ingredients <span><i class="fas fa-chevron-down"></i></span>
+            </button>
+            <form
+              action="GET"
+              id="form-searchIngredient"
+              class="selectForm form-searchIngredient"
+              style="display: none"
+            >
+              <label
+                for="form-searchIngredient"
+                class="form-searchIngredient-label"
+              ></label>
+              <input
+                type="search"
+                id="form-searchIngredient-input"
+                class="form-searchIngredient-input"
+                placeholder="Rechercher un ingrédients"
+              />
+              <span class="chevron-up ingredients-down"
+                ><i class="fas fa-chevron-up"></i
+              ></span>
+              <ul></ul>
+            </form>
+          </div>
+          <div class="select">
+            <button class="selectButton appareils">
+              Appareils <span><i class="fas fa-chevron-down"></i></span>
+            </button>
+          </div>
+          <div class="select">
+            <button class="selectButton ustensiles">
+              Ustensiles <span><i class="fas fa-chevron-down"></i></span>
+            </button>
+          </div>
         </div>
       </section>
+      <section class="recipe-container" id="recipe-container"></section>
     </main>
   </body>
+
   <script src="recipes.js"></script>
   <script src="script.js"></script>
 </html>

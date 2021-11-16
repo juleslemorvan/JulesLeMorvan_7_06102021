@@ -17,12 +17,9 @@ function closeDropDownButton() {
   const selectForms = document.querySelectorAll(".selectForm");
   const selectIcons = document.querySelectorAll(".chevron-up");
   const selectButtons = document.querySelectorAll(".selectButton");
-  console.log(selectIcons);
 
   selectIcons.forEach((selectIcon) => {
     selectIcon.addEventListener("click", (e) => {
-      console.log("test");
-
       selectForms.forEach((selectForm) => {
         selectForm.style.display = "none";
       });
@@ -35,7 +32,43 @@ function closeDropDownButton() {
 
 closeDropDownButton();
 
+// recipes.forEach(function (recipe) {
+//   let ingredients = recipe.ingredients;
+
+//   ingredients.forEach(function (ingredient) {
+
+//     console.log(ingredient.ingredient);
+//   });
+
+//   // let li = document.createElement("li");
+//   // li.classList.add("item");
+//   // document.querySelector("listOfIngredients").appendChild(li);
+// });
+
+// recipes.forEach(function(recipe) {
+//   let ingredientItem = document.createElement('li')
+
+// })
+
 console.log(recipes);
 
-// creer un tableau
-// selectionner chaque array et push chaque ingredient dans l'array sans duppliquer
+function getIngredientsFromData(recipes) {
+  const listOfIngredients = document.getElementById("listOfIngredients");
+  let allIngredient = [];
+  recipes.forEach((recipe) => {
+    let ingredientsList = recipe.ingredients;
+    ingredientsList.forEach(function (ingredientList) {
+      allIngredient.push(ingredientList.ingredient);
+    });
+  });
+
+  const finalIngredient = [...new Set(allIngredient)];
+  console.log(finalIngredient);
+  finalIngredient.forEach((ingredient) => {
+    listOfIngredients.innerHTML += `
+    <li class="item">${ingredient}<li/>
+    `;
+  });
+}
+
+getIngredientsFromData(recipes);

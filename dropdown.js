@@ -1,5 +1,4 @@
 // SELECT BUTTON
-console.log(recipes);
 
 function OpenDropDownButton() {
   const selectButtons = document.querySelectorAll(".selectButton");
@@ -89,13 +88,10 @@ function getUstensilesFromData(recipes) {
   let allUstensils = [];
   recipes.forEach((recipe) => {
     let ustensilsList = recipe.ustensils;
-    console.log(ustensilsList);
-
     ustensilsList.forEach(function (ustensilList) {
       allUstensils.push(ustensilList);
     });
   });
-  console.log(allUstensils);
 
   const finalUstensils = [...new Set(allUstensils)];
   finalUstensils.forEach((ustensil) => {

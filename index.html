@@ -39,7 +39,11 @@
         <!-- BOUTONS SELECT -->
         <div class="select-container">
           <div class="select select-ingredients">
-            <button class="selectButton ingredients" id="selectButton">
+            <button
+              class="selectButton ingredients"
+              id="selectButton"
+              type="ingredient"
+            >
               Ingredients <span><i class="fas fa-chevron-down"></i></span>
             </button>
             <form
@@ -64,15 +68,66 @@
             </form>
             <ul class="listOfIngredients" id="listOfIngredients"></ul>
           </div>
-          <div class="select">
-            <button class="selectButton appareils">
+
+          <div class="select select-appareils">
+            <button
+              class="selectButton appareils"
+              id="selectButton"
+              type="appareils"
+            >
               Appareils <span><i class="fas fa-chevron-down"></i></span>
             </button>
+            <form
+              action="GET"
+              id="form-searchAppareil"
+              class="selectForm form-searchAppareil"
+              style="display: none"
+            >
+              <label
+                for="form-searchAppareil"
+                class="form-searchAppareil-label"
+              ></label>
+              <input
+                type="search"
+                id="form-searchAppareil-input"
+                class="form-searchAppareil-input"
+                placeholder="Rechercher un Appareil"
+              />
+              <span class="chevron-up appareil-down"
+                ><i class="fas fa-chevron-up"></i
+              ></span>
+            </form>
+            <ul class="listOfAppareils" id="listOfAppareils"></ul>
           </div>
-          <div class="select">
-            <button class="selectButton ustensiles">
+          <div class="select select-ustensiles">
+            <button
+              class="selectButton ustensiles"
+              id="selectButton"
+              type="ustensils"
+            >
               Ustensiles <span><i class="fas fa-chevron-down"></i></span>
             </button>
+            <form
+              action="GET"
+              id="form-searchUstensile"
+              class="selectForm form-searchUstensile"
+              style="display: none"
+            >
+              <label
+                for="form-searchUstensile"
+                class="form-searchUstensile-label"
+              ></label>
+              <input
+                type="search"
+                id="form-searchUstensile-input"
+                class="form-searchUstensile-input"
+                placeholder="Rechercher un Ustensile"
+              />
+              <span class="chevron-up ustensile-down"
+                ><i class="fas fa-chevron-up"></i
+              ></span>
+            </form>
+            <ul class="listOfUstensiles" id="listOfUstensiles"></ul>
           </div>
         </div>
       </section>
@@ -81,5 +136,6 @@
   </body>
 
   <script src="recipes.js"></script>
+  <script src="dropdown.js"></script>
   <script src="script.js"></script>
 </html>

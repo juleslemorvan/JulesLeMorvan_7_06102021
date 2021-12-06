@@ -1,5 +1,7 @@
 // SELECT BUTTON
 
+// Function OPEN SELECT BUTTON
+
 function OpenDropDownButton() {
   const selectButtons = document.querySelectorAll(".selectButton");
   selectButtons.forEach((selectButton) => {
@@ -13,11 +15,11 @@ function OpenDropDownButton() {
           break;
         case "appareils":
           getAppareilsFromData(recipes);
-          listOfAppareils.style.display = "grid";
+          listOfAppareils.style.display = "block";
           break;
         case "ustensils":
           getUstensilesFromData(recipes);
-          listOfUstensiles.style.display = "grid";
+          listOfUstensiles.style.display = "block";
           break;
       }
     });
@@ -25,6 +27,8 @@ function OpenDropDownButton() {
 }
 
 OpenDropDownButton();
+
+// FUNCTION CLOSE SELECT BUTTON
 
 function closeDropDownButton() {
   const selectForms = document.querySelectorAll(".selectForm");
@@ -48,6 +52,8 @@ function closeDropDownButton() {
 
 closeDropDownButton();
 
+// FUNCTION GET ALL INGREDIENTS
+
 function getIngredientsFromData(recipes) {
   const listOfIngredients = document.getElementById("listOfIngredients");
   let allIngredient = [];
@@ -61,10 +67,11 @@ function getIngredientsFromData(recipes) {
   const finalIngredient = [...new Set(allIngredient)];
   finalIngredient.forEach((ingredient) => {
     listOfIngredients.innerHTML += `
-    <li class="item">${ingredient}</li>
+    <li class="item" id="itemIngredient">${ingredient}</li>
     `;
   });
 }
+// FUNCTION GET ALL APPLIANCE
 
 function getAppareilsFromData(recipes) {
   const listOfAppareils = document.getElementById("listOfAppareils");
@@ -77,11 +84,12 @@ function getAppareilsFromData(recipes) {
   let finalAppareils = [...new Set(allAppareils)];
   finalAppareils.forEach((appareil) => {
     listOfAppareils.innerHTML += `
-    <li class="item">${appareil}</li>
+    <li class="item" id="itemAppareil">${appareil}</li>
     `;
   });
 }
-getAppareilsFromData(recipes);
+
+// FUNCTION GET ALL USTENSILS
 
 function getUstensilesFromData(recipes) {
   const listOfUstensiles = document.getElementById("listOfUstensiles");
@@ -96,9 +104,7 @@ function getUstensilesFromData(recipes) {
   const finalUstensils = [...new Set(allUstensils)];
   finalUstensils.forEach((ustensil) => {
     listOfUstensiles.innerHTML += `
-    <li class="item">${ustensil}</li>
+    <li class="item" id="itemUstensil">${ustensil}</li>
     `;
   });
 }
-
-getUstensilesFromData(recipes);

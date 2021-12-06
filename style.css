@@ -415,6 +415,7 @@ body * {
   flex-wrap: wrap;
   margin-left: 135px;
   margin-top: 40px;
+  align-items: flex-start;
 }
 
 .selectButton {
@@ -578,6 +579,67 @@ body * {
   font-size: 27px;
   opacity: 0.8;
   color: white;
+}
+
+.recipeContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin: 30px 100px 0 100px;
+  column-gap: 15px;
+  row-gap: 25px;
+}
+
+.recipe {
+  height: 300px;
+  border: 1px solid black;
+  margin: 0;
+}
+
+.recipe__imgContainer {
+  height: 55%;
+}
+
+.description {
+  height: 45%;
+  display: flex;
+  flex-direction: column;
+  font-size: 10px;
+  padding: 10px;
+  background: #e7e7e7;
+  line-height: 1rem;
+}
+
+.description__title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.description__element {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 10px;
+}
+
+.ingredientsList {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0;
+  margin: 0;
+}
+
+.preparation {
+  display: -webkit-box;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0;
 }
 
 /*# sourceMappingURL=style.css.map */

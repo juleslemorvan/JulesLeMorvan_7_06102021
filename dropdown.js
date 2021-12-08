@@ -5,13 +5,14 @@
 function OpenDropDownButton() {
   const selectButtons = document.querySelectorAll(".selectButton");
   selectButtons.forEach((selectButton) => {
-    selectButton.addEventListener("click", (e) => {
+    selectButton.addEventListener("click", () => {
       selectButton.style.display = "none";
       selectButton.nextSibling.nextSibling.style.display = "block";
       switch (selectButton.getAttribute("type")) {
         case "ingredient":
           getIngredientsFromData(recipes);
           listOfIngredients.style.display = "grid";
+          loadClick();
           break;
         case "appareils":
           getAppareilsFromData(recipes);
@@ -67,8 +68,17 @@ function getIngredientsFromData(recipes) {
   const finalIngredient = [...new Set(allIngredient)];
   finalIngredient.forEach((ingredient) => {
     listOfIngredients.innerHTML += `
-    <li class="item" id="itemIngredient">${ingredient}</li>
+    <li class="item itemIngredient">${ingredient}</li>
     `;
+  });
+}
+
+function loadClick() {
+  const items = document.querySelectorAll(".itemIngredient");
+  items.forEach((item) => {
+    item.addEventListener("click", (e) => {
+      console.log(e.target.innerHTML);
+    });
   });
 }
 // FUNCTION GET ALL APPLIANCE
@@ -106,5 +116,14 @@ function getUstensilesFromData(recipes) {
     listOfUstensiles.innerHTML += `
     <li class="item" id="itemUstensil">${ustensil}</li>
     `;
+  });
+}
+
+function displayTags() {
+  const itemIngredients = document.querySelectorAll("itemIngredient");
+  itemIngredients.forEach((itemIngredient) => {
+    itemIngredient.addEventListener("click", () => {
+      console.log("click");
+    });
   });
 }

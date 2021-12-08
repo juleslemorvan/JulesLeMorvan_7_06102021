@@ -3,7 +3,7 @@ console.log(recipes);
 const searchBar = document.getElementById("searchInput");
 let searchString = "";
 
-// AFFICHAGE RECETTE
+// GET INGREDIENTS IN RECIPES
 
 function displayingredients(ingredients) {
   return `
@@ -11,7 +11,9 @@ function displayingredients(ingredients) {
            ${ingredients
              .map(function (ingredient) {
                return `
-            <li>${ingredient.ingredient} ${ingredient.quantity} ${ingredient.unit}</li>
+            <li>${
+              ingredient.ingredient
+            } ${ingredient.quantity} ${ingredient.unit ? ingredient.unit : ""}</li>
             `;
              })
              .join(" ")}
@@ -19,8 +21,11 @@ function displayingredients(ingredients) {
            `;
 }
 
+// GET ALL RECIPES
+
 function displayRecipes(recipes) {
   const recipeContainer = document.getElementById("recipeContainer");
+  recipeContainer.innerHTML = "";
   recipes.forEach((recipe) => {
     recipeContainer.innerHTML += `
   <figure class="recipe" id="recipe">
@@ -47,12 +52,24 @@ function displayRecipes(recipes) {
 }
 displayRecipes(recipes);
 
+// SEARCH BAR
+
 searchBar.addEventListener("keyup", (e) => {
   const searchString = e.target.value;
   const filterRecipe = recipes.filter((recipe) => {
+    const isInIngredients =
+      recipe.ingredients.filter((i) =>
+        i.ingredient.toLowerCase().includes(searchString.toLowerCase())
+      ).length > 0;
+    const isInUstensils =
+      recipe.ustensils.filter((u) =>
+        u.toLowerCase().includes(searchString.toLowerCase())
+      ).length > 0;
     return (
-      recipe.name.includes(searchString) ||
-      recipe.appliance.includes(searchString)
+      recipe.name.toLowerCase().includes(searchString.toLowerCase()) ||
+      recipe.appliance.toLowerCase().includes(searchString.toLowerCase()) ||
+      isInUstensils ||
+      isInIngredients
     );
   });
   console.log(filterRecipe);

@@ -264,6 +264,10 @@ textarea {
   overflow: auto;
 }
 
+ul {
+  margin: 0;
+}
+
 /**
  * 1. Add the correct box sizing in IE 10.
  * 2. Remove the padding in IE 10.
@@ -579,6 +583,10 @@ body * {
   font-size: 27px;
   opacity: 0.8;
   color: white;
+}
+
+.select-area {
+  position: relative;
 }
 
 .recipeContainer {

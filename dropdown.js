@@ -86,13 +86,14 @@ function loadClick() {
       </div>
       `;
     });
-  });
-  const itemContainers = document.querySelectorAll(".tagContainer");
-  itemContainers.forEach((itemContainer) => {
-    const closeItemContainer = document.querySelector(".fa-times-circle");
-    closeItemContainer.addEventListener("click", () => {
-      console.log("clickRemove");
-      itemContainer.style.display = "none";
+    const closeItemContainers = document.querySelectorAll(
+      ".tagContainer .fa-times-circle"
+    );
+    closeItemContainers.forEach((closeItemContainer) => {
+      closeItemContainer.addEventListener("click", () => {
+        console.log("clickRemove");
+        closeItemContainer.parentElement.style.display = "none";
+      });
     });
   });
 }

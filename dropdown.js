@@ -77,7 +77,22 @@ function loadClick() {
   const items = document.querySelectorAll(".itemIngredient");
   items.forEach((item) => {
     item.addEventListener("click", (e) => {
-      console.log(e.target.innerHTML);
+      const tag = e.target.innerHTML;
+      const filterTag = document.getElementById("filterTag");
+      filterTag.innerHTML += `
+      <div class="tagContainer">
+      <p class="ingredientItem">${tag}</p>
+      <i class="fas fa-times-circle"></i>
+      </div>
+      `;
+    });
+  });
+  const itemContainers = document.querySelectorAll(".tagContainer");
+  itemContainers.forEach((itemContainer) => {
+    const closeItemContainer = document.querySelector(".fa-times-circle");
+    closeItemContainer.addEventListener("click", () => {
+      console.log("clickRemove");
+      itemContainer.style.display = "none";
     });
   });
 }

@@ -4,7 +4,7 @@
   display: flex;
   flex-wrap: wrap;
   margin-left: 135px;
-  margin-top: 40px;
+  margin-top: 30px;
   align-items: flex-start;
 }
 
@@ -172,4 +172,37 @@
   font-size: 27px;
   opacity: 0.8;
   color: white;
+}
+
+.filterTag {
+  display: flex;
+  margin-top: 20px;
+  margin-left: 140px;
+  align-items: flex-start;
+}
+
+.tagContainer {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  background-color: #3282f7;
+  margin-right: 10px;
+  border-radius: 15px;
+}
+.ingredientItem {
+  position: relative;
+  color: white;
+  padding: 0 25px 0 10px;
+  font-size: 13px;
+  margin-right: 5px;
+}
+
+.fa-times-circle {
+  position: absolute;
+  margin: 5px 0;
+  top: 5px;
+  right: 5px;
+  color: white;
+  font-size: 17px;
+  cursor: pointer;
 }

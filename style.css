@@ -619,6 +619,10 @@ body * {
   cursor: pointer;
 }
 
+.delete {
+  display: none;
+}
+
 .select-area {
   position: relative;
   height: 150px;

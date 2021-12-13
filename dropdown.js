@@ -85,15 +85,16 @@ function loadClick() {
       <i class="fas fa-times-circle"></i>
       </div>
       `;
+      deleteTag();
     });
-    const closeItemContainers = document.querySelectorAll(
-      ".tagContainer .fa-times-circle"
-    );
-    closeItemContainers.forEach((closeItemContainer) => {
-      closeItemContainer.addEventListener("click", () => {
-        console.log("clickRemove");
-        closeItemContainer.parentElement.style.display = "none";
-      });
+  });
+}
+
+function deleteTag() {
+  const closeTagsContainer = document.querySelectorAll(".fa-times-circle");
+  closeTagsContainer.forEach((closeTagContainer) => {
+    closeTagContainer.addEventListener("click", () => {
+      closeTagContainer.parentElement.classList.add("delete");
     });
   });
 }

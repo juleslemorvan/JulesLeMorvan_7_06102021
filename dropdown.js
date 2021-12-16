@@ -82,18 +82,24 @@ function loadClickIngredient() {
     item.addEventListener("click", (e) => {
       const tag = e.target.innerHTML;
       const filterTag = document.getElementById("filterTag");
+      let hasTag = false;
       const ingredientItems = document.querySelectorAll(".ingredientItem");
       ingredientItems.forEach((ingredientItem) => {
-        if (ingredientItem.innerText !== tag) {
-          filterTag.innerHTML += `
-      <div class="tagContainerIngredient">
-      <p class="ingredientItem">${tag}</p>
-      <i class="fas fa-times-circle"></i>
-      </div>
-      `;
-          deleteTag();
+        if (ingredientItem.innerText === tag) {
+          hasTag = true;
+          console.log("votre tag est deja présent");
         }
       });
+      if (hasTag === false) {
+        filterTag.innerHTML += `
+        <div class="tagContainerIngredient">
+        <p class="ingredientItem">${tag}</p>
+        <i class="fas fa-times-circle"></i>
+        </div>
+        `;
+
+        deleteTag();
+      }
     });
   });
 }

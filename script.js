@@ -13,7 +13,7 @@ function displayingredients(ingredients) {
                return `
             <li>${
               ingredient.ingredient
-            } ${ingredient.quantity} ${ingredient.unit ? ingredient.unit : ""}</li>
+            } ${ingredient.quantity ? ingredient.quantity : " "} ${ingredient.unit ? ingredient.unit : " "}</li>
             `;
              })
              .join(" ")}
@@ -26,6 +26,7 @@ function displayingredients(ingredients) {
 function displayRecipes(recipes) {
   const recipeContainer = document.getElementById("recipeContainer");
   recipeContainer.innerHTML = "";
+  document.getElementById("nb-result").innerHTML = recipes.length;
   recipes.forEach((recipe) => {
     recipeContainer.innerHTML += `
   <figure class="recipe" id="recipe">
@@ -75,3 +76,11 @@ searchBar.addEventListener("keyup", (e) => {
   console.log(filterRecipe);
   displayRecipes(filterRecipe);
 });
+
+// Question :
+
+// unit => undefined
+
+// nombre de recette trouvé ?
+
+// filter par tag ?

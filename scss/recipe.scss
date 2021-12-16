@@ -28,7 +28,7 @@
   font-size: 10px;
   padding: 10px;
   background: #e7e7e7;
-  line-height: 1rem;
+  line-height: 0.9rem;
 }
 
 .description__title {
@@ -44,6 +44,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   column-gap: 10px;
+  overflow: hidden;
 }
 
 .ingredientsList {

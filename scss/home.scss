@@ -32,6 +32,15 @@ body * {
 
 /* section SEARCH */
 
+.numberOfRecipe {
+  margin: 0 auto;
+  width: 80%;
+}
+
+.nb-result {
+  font-weight: 700;
+}
+
 .search {
   display: flex;
   flex-direction: column;

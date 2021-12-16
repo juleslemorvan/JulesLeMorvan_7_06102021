@@ -24,6 +24,11 @@
       <h1 class="header_title">Les petits plats</h1>
     </header>
     <main>
+      <div class="numberOfRecipe">
+        <p>
+          <span class="nb-result" id="nb-result"></span> recette(s) trouvée(s)
+        </p>
+      </div>
       <!-- INPUT RECHERCHER -->
       <section class="search">
         <form action="GET" id="search" class="firstForm">
@@ -99,7 +104,7 @@
                   class="form-searchAppareil-input"
                   placeholder="Rechercher un Appareil"
                 />
-                <span class="chevron-up appareil-down"
+                <span class="chevron-up appareil-up"
                   ><i class="fas fa-chevron-up"></i
                 ></span>
               </form>
@@ -129,7 +134,7 @@
                   class="form-searchUstensile-input"
                   placeholder="Rechercher un Ustensile"
                 />
-                <span class="chevron-up ustensile-down"
+                <span class="chevron-up ustensile-up"
                   ><i class="fas fa-chevron-up"></i
                 ></span>
               </form>

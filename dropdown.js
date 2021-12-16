@@ -12,15 +12,17 @@ function OpenDropDownButton() {
         case "ingredient":
           getIngredientsFromData(recipes);
           listOfIngredients.style.display = "grid";
-          loadClick();
+          loadClickIngredient();
           break;
         case "appareils":
           getAppareilsFromData(recipes);
           listOfAppareils.style.display = "block";
+          loadClickAppliance();
           break;
         case "ustensils":
           getUstensilesFromData(recipes);
           listOfUstensiles.style.display = "block";
+          loadClickUstensil();
           break;
       }
     });
@@ -73,31 +75,29 @@ function getIngredientsFromData(recipes) {
   });
 }
 
-function loadClick() {
+function loadClickIngredient() {
   const items = document.querySelectorAll(".itemIngredient");
+
   items.forEach((item) => {
     item.addEventListener("click", (e) => {
       const tag = e.target.innerHTML;
       const filterTag = document.getElementById("filterTag");
-      filterTag.innerHTML += `
-      <div class="tagContainer">
+      const ingredientItems = document.querySelectorAll(".ingredientItem");
+      ingredientItems.forEach((ingredientItem) => {
+        if (ingredientItem.innerText !== tag) {
+          filterTag.innerHTML += `
+      <div class="tagContainerIngredient">
       <p class="ingredientItem">${tag}</p>
       <i class="fas fa-times-circle"></i>
       </div>
       `;
-      deleteTag();
+          deleteTag();
+        }
+      });
     });
   });
 }
 
-function deleteTag() {
-  const closeTagsContainer = document.querySelectorAll(".fa-times-circle");
-  closeTagsContainer.forEach((closeTagContainer) => {
-    closeTagContainer.addEventListener("click", () => {
-      closeTagContainer.parentElement.classList.add("delete");
-    });
-  });
-}
 // FUNCTION GET ALL APPLIANCE
 
 function getAppareilsFromData(recipes) {
@@ -111,8 +111,25 @@ function getAppareilsFromData(recipes) {
   let finalAppareils = [...new Set(allAppareils)];
   finalAppareils.forEach((appareil) => {
     listOfAppareils.innerHTML += `
-    <li class="item" id="itemAppareil">${appareil}</li>
+    <li class="item itemAppliance">${appareil}</li>
     `;
+  });
+}
+
+function loadClickAppliance() {
+  const items = document.querySelectorAll(".itemAppliance");
+  items.forEach((item) => {
+    item.addEventListener("click", (e) => {
+      const tag = e.target.innerHTML;
+      const filterTag = document.getElementById("filterTag");
+      filterTag.innerHTML += `
+      <div class="tagContainerAppliance">
+      <p class="ApplianceItem">${tag}</p>
+      <i class="fas fa-times-circle"></i>
+      </div>
+      `;
+      deleteTag();
+    });
   });
 }
 
@@ -131,16 +148,47 @@ function getUstensilesFromData(recipes) {
   const finalUstensils = [...new Set(allUstensils)];
   finalUstensils.forEach((ustensil) => {
     listOfUstensiles.innerHTML += `
-    <li class="item" id="itemUstensil">${ustensil}</li>
+    <li class="item itemUstensil">${ustensil}</li>
     `;
   });
 }
 
-function displayTags() {
-  const itemIngredients = document.querySelectorAll("itemIngredient");
-  itemIngredients.forEach((itemIngredient) => {
-    itemIngredient.addEventListener("click", () => {
-      console.log("click");
+function loadClickUstensil() {
+  const items = document.querySelectorAll(".itemUstensil");
+  items.forEach((item) => {
+    item.addEventListener("click", (e) => {
+      const tag = e.target.innerHTML;
+      const filterTag = document.getElementById("filterTag");
+      filterTag.innerHTML += `
+      <div class="tagContainerUstensil">
+      <p class="UstensilItem">${tag}</p>
+      <i class="fas fa-times-circle"></i>
+      </div>
+      `;
+      deleteTag();
     });
   });
 }
+
+// FUNCTION DELETE TAG
+
+function deleteTag() {
+  const closeTagsContainer = document.querySelectorAll(".fa-times-circle");
+  closeTagsContainer.forEach((closeTagContainer) => {
+    closeTagContainer.addEventListener("click", () => {
+      console.log("click");
+
+      closeTagContainer.parentElement.remove();
+    });
+  });
+}
+
+// FILTER BY TAG
+
+// function filterByTag(){
+// const filterRecipesByTag = recipes.filter((recipe) => {
+//   const isInIngredientTag = recipe.ingredients.filter((i) => {
+//     i.ingredient.includes(${tag})
+//   })
+// })
+// }

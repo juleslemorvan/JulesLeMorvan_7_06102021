@@ -5,6 +5,10 @@ let searchString = "";
 
 // GET INGREDIENTS IN RECIPES
 
+let ingredientTags = [];
+let applianceTags = [];
+let ustensilTags = [];
+
 function displayingredients(ingredients) {
   return `
            <ul class="ingredientsList">
@@ -30,10 +34,9 @@ function displayRecipes(recipes) {
   recipes.forEach((recipe) => {
     recipeContainer.innerHTML += `
   <figure class="recipe" id="recipe">
-         <a class="recipe_link">
-             <div class="recipe__imgContainer">
-                 <img class="recipe__img">
-                 </img>
+      <a class="recipe_link">
+        <div class="recipe__imgContainer">
+          <img src="${recipe.img}" class="recipe__img">
              </div>
              <figcaption class="description">
                  <div class="description__title">${
@@ -46,7 +49,7 @@ function displayRecipes(recipes) {
                  <p class="preparation">${recipe.description}</p>
                  </div>
              </figcaption>
-          </a>
+        </a>
   </figure>
   `;
   });
@@ -76,11 +79,3 @@ searchBar.addEventListener("keyup", (e) => {
   console.log(filterRecipe);
   displayRecipes(filterRecipe);
 });
-
-// Question :
-
-// unit => undefined
-
-// nombre de recette trouvé ?
-
-// filter par tag ?

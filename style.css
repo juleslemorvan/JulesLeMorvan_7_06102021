@@ -613,7 +613,7 @@ body * {
   align-items: flex-start;
 }
 
-.tagContainerIngredient {
+.ingredientTagContainer {
   position: relative;
   display: flex;
   justify-content: space-between;
@@ -622,7 +622,7 @@ body * {
   border-radius: 15px;
 }
 
-.ingredientItem {
+.ingredientText {
   position: relative;
   color: white;
   padding: 0 25px 0 10px;
@@ -644,7 +644,7 @@ body * {
   display: none;
 }
 
-.tagContainerAppliance {
+.applianceTagContainer {
   position: relative;
   display: flex;
   justify-content: space-between;
@@ -653,7 +653,7 @@ body * {
   border-radius: 15px;
 }
 
-.ApplianceItem {
+.applianceText {
   position: relative;
   color: white;
   padding: 0 25px 0 10px;
@@ -661,7 +661,7 @@ body * {
   margin-right: 5px;
 }
 
-.tagContainerUstensil {
+.ustensilTagContainer {
   position: relative;
   display: flex;
   justify-content: space-between;
@@ -670,7 +670,7 @@ body * {
   border-radius: 15px;
 }
 
-.UstensilItem {
+.ustensilText {
   position: relative;
   color: white;
   padding: 0 25px 0 10px;
@@ -699,6 +699,12 @@ body * {
 
 .recipe__imgContainer {
   height: 55%;
+}
+
+.recipe__img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
 }
 
 .description {

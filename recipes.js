@@ -20,7 +20,7 @@ const recipes = [
       },
       {
         ingredient: "Sucre",
-        quantite: 30,
+        quantity: 30,
         unit: "grammes",
       },
       {
@@ -28,6 +28,7 @@ const recipes = [
       },
     ],
     time: 10,
+    img: "assets/images/img/limonade-de-coco.jpg",
     description:
       "Mettre les glaçons à votre goût dans le blender, ajouter le lait, la crème de coco, le jus de 2 citrons et le sucre. Mixer jusqu'à avoir la consistence désirée",
     appliance: "Blender",
@@ -53,19 +54,20 @@ const recipes = [
       },
       {
         ingredient: "Carotte",
-        quantite: 1,
+        quantity: 1,
       },
       {
         ingredient: "Citron Vert",
         quantity: 5,
       },
       {
-        ingredient: "Lait de Coco",
+        ingredient: "Lait de coco",
         quantity: 100,
         unit: "ml",
       },
     ],
     time: 60,
+    img: "assets/images/img/poisson cru a la tahaitienne.webp",
     description:
       "Découper le thon en dés, mettre dans un plat et recouvrir de jus de citron vert (mieux vaut prendre un plat large et peu profond). Laisser reposer au réfrigérateur au moins 2 heures. (Si possible faites-le le soir pour le lendemain. Après avoir laissé mariner le poisson, coupez le concombre en fines rondelles sans la peau et les tomates en prenant soin de retirer les pépins. Rayer la carotte. Ajouter les légumes au poissons avec le citron cette fois ci dans un Saladier. Ajouter le lait de coco. Pour ajouter un peu plus de saveur vous pouver ajouter 1 à 2 cuillères à soupe de Crème de coco",
     appliance: "Saladier",
@@ -755,7 +757,7 @@ const recipes = [
         unit: "cl",
       },
       {
-        ingredient: "Crème Fraiche",
+        ingredient: "Crème fraiche",
         quantity: 1,
         unit: "cuillères à soupe",
       },
@@ -965,7 +967,7 @@ const recipes = [
         quantity: 1,
       },
       {
-        ingredient: "Crème fraîche",
+        ingredient: "Crème fraiche",
         quantity: 4,
         unit: "cuillère à soupe",
       },
@@ -1011,7 +1013,7 @@ const recipes = [
         unit: "grammes",
       },
       {
-        ingredient: "Crême fraîche",
+        ingredient: "Crème fraiche",
         quantity: 10,
         unit: "cl",
       },
@@ -1204,7 +1206,7 @@ const recipes = [
         unit: "grammes",
       },
       {
-        ingredient: "Crème fraîche",
+        ingredient: "Crème fraiche",
         quantity: 20,
         unit: "cl",
       },
@@ -1326,7 +1328,7 @@ const recipes = [
         quantity: 1,
       },
       {
-        ingredient: "Coulis de tomates",
+        ingredient: "Coulis de tomate",
         quantity: 20,
         unit: "cl",
       },

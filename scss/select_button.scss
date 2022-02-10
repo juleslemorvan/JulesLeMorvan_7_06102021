@@ -192,7 +192,7 @@
   align-items: flex-start;
 }
 
-.tagContainerIngredient {
+.ingredientTagContainer {
   position: relative;
   display: flex;
   justify-content: space-between;
@@ -200,7 +200,7 @@
   margin-right: 10px;
   border-radius: 15px;
 }
-.ingredientItem {
+.ingredientText {
   position: relative;
   color: white;
   padding: 0 25px 0 10px;
@@ -222,7 +222,7 @@
   display: none;
 }
 
-.tagContainerAppliance {
+.applianceTagContainer {
   position: relative;
   display: flex;
   justify-content: space-between;
@@ -231,7 +231,7 @@
   border-radius: 15px;
 }
 
-.ApplianceItem {
+.applianceText {
   position: relative;
   color: white;
   padding: 0 25px 0 10px;
@@ -239,7 +239,7 @@
   margin-right: 5px;
 }
 
-.tagContainerUstensil {
+.ustensilTagContainer {
   position: relative;
   display: flex;
   justify-content: space-between;
@@ -248,7 +248,7 @@
   border-radius: 15px;
 }
 
-.UstensilItem {
+.ustensilText {
   position: relative;
   color: white;
   padding: 0 25px 0 10px;

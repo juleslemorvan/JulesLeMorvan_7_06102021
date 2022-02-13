@@ -522,6 +522,8 @@ body * {
   white-space: nowrap;
   cursor: pointer;
   max-width: 185px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .item:hover {

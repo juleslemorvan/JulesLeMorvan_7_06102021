@@ -22,7 +22,7 @@ function OpenDropDownButton() {
     selectButton.addEventListener("click", () => {
       selectButton.style.display = "none";
       selectButton.nextSibling.nextSibling.style.display = "block";
-      switch (selectButton.getAttribute("type")) {
+      switch (selectButton.getAttribute("category")) {
         case "ingredient":
           setIngredientFromData();
           listOfIngredients.style.display = "grid";
@@ -109,24 +109,6 @@ function filterRecipes() {
   displayRecipes(nextRecipes);
 }
 
-/* 
-
-const props = {
-  filterName: ...,
-  addFilter: ...,
-  removeFilter: ...
-}
-loadClickFilter(props)
-
-const loadClickFilter = ({filterName, addFilter, removeFilter}) => {
-  props.filterName
-  props.addFilter
-  props.removeFilter
-  ....
-}
-
-*/
-
 const loadClickFilter = ({ filterName, addFilter, removeFilter }) => {
   const items = document.querySelectorAll(`.${filterName}Item`);
 
@@ -166,14 +148,6 @@ const loadClickFilter = ({ filterName, addFilter, removeFilter }) => {
   });
 };
 
-/* 
-1. récupérer le container de la liste des ingredients
-2. récupérer les recettes
-3. Ajouter tous les ingrédients des recettes dans le container
-  3.1 Pour chaque recette, ajouter ses ingrédients dans le container de la liste
-  3.2 S'assurer qu'on a pas mis deux fois la même chose
-*/
-
 // FUNCTION GET ALL INGREDIENTS
 
 function setIngredientFromData(search = "") {
@@ -202,25 +176,15 @@ function setIngredientFromData(search = "") {
   });
 }
 
-// FUNCTION GET ALL APPLIANCE
-
-/* 
-1. récupérer le container de la liste des appareils
-2. récupérer les recettes
-3. Ajouter l'appareil des recettes dans le container
-*/
-
 function setAppliancesFromData(search = "") {
   const listOfAppliances = document.getElementById("listOfAppareils");
   listOfAppliances.innerHTML = "";
   const allAppliances = new Set();
 
   recipes.forEach((recipe) => {
-    recipe.appliances.forEach((value) => {
-      if (value.appliance.toLowerCase().includes(search.toLowerCase())) {
-        allAppliances.add(value.appliance);
-      }
-    });
+    if (recipe.appliance.toLowerCase().includes(search.toLowerCase())) {
+      allAppliances.add(recipe.appliance);
+    }
   });
 
   allAppliances.forEach((appliance) => {
@@ -236,23 +200,15 @@ function setAppliancesFromData(search = "") {
   });
 }
 
-// FUNCTION GET ALL USTENSILS
-
-/* 
-1. récupérer le container de la liste des ustensils
-2. récupérer les recettes
-3. Ajouter l'appareil des recettes dans le container
-*/
-
 function setUstensilesFromData(search = "") {
   const listOfUstensiles = document.getElementById("listOfUstensiles");
   listOfUstensiles.innerHTML = "";
   const allUstensils = new Set();
 
   recipes.forEach((recipe) => {
-    recipe.ustensils.forEach((value) => {
-      if (value.ustensil.toLowerCase().includes(search.toLowerCase())) {
-        allUstensils.add(value.ustensil);
+    recipe.ustensils.forEach((ustensil) => {
+      if (ustensil.toLowerCase().includes(search.toLowerCase())) {
+        allUstensils.add(ustensil);
       }
     });
   });

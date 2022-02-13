@@ -1,5 +1,3 @@
-console.log(recipes);
-
 const searchBar = document.getElementById("searchInput");
 let searchString = "";
 
@@ -76,6 +74,31 @@ searchBar.addEventListener("keyup", (e) => {
       isInIngredients
     );
   });
-  console.log(filterRecipe);
+
   displayRecipes(filterRecipe);
+});
+
+// 2eme algo
+
+searchBar.addEventListener("keyup", (e) => {
+  const searchString = e.target.value;
+  let ingredientFiltered = [];
+  allIngredient2 = [];
+
+  for (let i = 0; i < recipes.length; i++) {
+    recipe = recipes[i].ingredients;
+    for (let i = 0; i < recipe.length; i++) {
+      allIngredient2.push(recipe[i].ingredient);
+    }
+  }
+  let uniqueArrIngredient = [...new Set(allIngredient2)];
+
+  for (let i = 0; i < uniqueArrIngredient.length; i++) {
+    if (
+      uniqueArrIngredient[i].toLowerCase().includes(searchString.toLowerCase())
+    ) {
+      ingredientFiltered.push(uniqueArrIngredient[i]);
+    }
+  }
+  // displayRecipes(recipeFiltered);
 });

@@ -86,19 +86,10 @@ searchBar.addEventListener("keyup", (e) => {
   allIngredient2 = [];
 
   for (let i = 0; i < recipes.length; i++) {
-    recipe = recipes[i].ingredients;
-    for (let i = 0; i < recipe.length; i++) {
+    ingredient = recipes[i].ingredients;
+    for (let i = 0; i < ingredient.length; i++) {
       allIngredient2.push(recipe[i].ingredient);
     }
   }
-  let uniqueArrIngredient = [...new Set(allIngredient2)];
-
-  for (let i = 0; i < uniqueArrIngredient.length; i++) {
-    if (
-      uniqueArrIngredient[i].toLowerCase().includes(searchString.toLowerCase())
-    ) {
-      ingredientFiltered.push(uniqueArrIngredient[i]);
-    }
-  }
-  // displayRecipes(recipeFiltered);
+  let ingredientFiltered = [...new Set(allIngredient2)];
 });

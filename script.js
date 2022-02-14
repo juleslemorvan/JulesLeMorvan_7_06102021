@@ -77,19 +77,3 @@ searchBar.addEventListener("keyup", (e) => {
 
   displayRecipes(filterRecipe);
 });
-
-// 2eme algo
-
-searchBar.addEventListener("keyup", (e) => {
-  const searchString = e.target.value;
-  let ingredientFiltered = [];
-  allIngredient2 = [];
-
-  for (let i = 0; i < recipes.length; i++) {
-    ingredient = recipes[i].ingredients;
-    for (let i = 0; i < ingredient.length; i++) {
-      allIngredient2.push(recipe[i].ingredient);
-    }
-  }
-  let ingredientFiltered = [...new Set(allIngredient2)];
-});

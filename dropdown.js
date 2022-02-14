@@ -22,7 +22,7 @@ function OpenDropDownButton() {
     selectButton.addEventListener("click", () => {
       selectButton.style.display = "none";
       selectButton.nextSibling.nextSibling.style.display = "block";
-      switch (selectButton.getAttribute("category")) {
+      switch (selectButton.getAttribute("name")) {
         case "ingredient":
           setIngredientFromData();
           listOfIngredients.style.display = "grid";

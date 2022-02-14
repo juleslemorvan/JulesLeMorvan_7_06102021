@@ -2,6 +2,7 @@ console.log(recipes);
 
 const searchBar = document.getElementById("searchInput");
 let searchString = "";
+console.log(recipes);
 
 // GET INGREDIENTS IN RECIPES
 
@@ -58,24 +59,86 @@ displayRecipes(recipes);
 
 // SEARCH BAR
 
+// searchBar.addEventListener("keyup", (e) => {
+//   const searchString = e.target.value;
+//   const filterRecipe = recipes.filter((recipe) => {
+//     const isInIngredients =
+//       recipe.ingredients.filter((i) =>
+//         i.ingredient.toLowerCase().includes(searchString.toLowerCase())
+//       ).length > 0;
+//     const isInUstensils =
+//       recipe.ustensils.filter((u) =>
+//         u.toLowerCase().includes(searchString.toLowerCase())
+//       ).length > 0;
+//     return (
+//       recipe.name.toLowerCase().includes(searchString.toLowerCase()) ||
+//       recipe.appliance.toLowerCase().includes(searchString.toLowerCase()) ||
+//       isInUstensils ||
+//       isInIngredients
+//     );
+//   });
+
+//   displayRecipes(filterRecipe);
+// });
+
+// 2eme algo
+
+function isNotInRecipes(recipes, id) {
+  let value = true;
+  for (let i = 0; i < recipes.length; i++) {
+    if (recipes[i].id === id) {
+      value = false;
+      break;
+    }
+  }
+  return value;
+}
+
+/* function debounce(callback, delay) {
+  let timeout;
+  return function () {
+    clearTimeout(timeout);
+    timeout = setTimeout(callback, delay);
+  };
+} */
+
+const matchSearch = (value, search) =>
+  value.toLowerCase().includes(search.toLowerCase());
+
+const needToAddRecipe = (recipe, search) => {
+  const { ingredients, ustensils, appliance, name } = recipe;
+
+  for (let j = 0; j < ingredients.length; j++) {
+    const { ingredient } = ingredients[j];
+    //  Pour ne pas repeter ingredient.ingredient
+    if (matchSearch(ingredient, search)) {
+      return true;
+    }
+  }
+
+  for (let j = 0; j < ustensils.length; j++) {
+    const ustensil = ustensils[j];
+    if (matchSearch(ustensil, search)) {
+      return true;
+    }
+  }
+
+  return matchSearch(appliance, search) || matchSearch(name, search);
+};
+
 searchBar.addEventListener("keyup", (e) => {
   const searchString = e.target.value;
-  const filterRecipe = recipes.filter((recipe) => {
-    const isInIngredients =
-      recipe.ingredients.filter((i) =>
-        i.ingredient.toLowerCase().includes(searchString.toLowerCase())
-      ).length > 0;
-    const isInUstensils =
-      recipe.ustensils.filter((u) =>
-        u.toLowerCase().includes(searchString.toLowerCase())
-      ).length > 0;
-    return (
-      recipe.name.toLowerCase().includes(searchString.toLowerCase()) ||
-      recipe.appliance.toLowerCase().includes(searchString.toLowerCase()) ||
-      isInUstensils ||
-      isInIngredients
-    );
-  });
-  console.log(filterRecipe);
-  displayRecipes(filterRecipe);
+  const recipesFiltered = [];
+
+  for (let i = 0; i < recipes.length; i++) {
+    const currentRecipe = recipes[i];
+    if (
+      isNotInRecipes(recipesFiltered, currentRecipe.id) &&
+      needToAddRecipe(currentRecipe, searchString)
+    ) {
+      recipesFiltered.push(currentRecipe);
+    }
+  }
+
+  displayRecipes(recipesFiltered);
 });

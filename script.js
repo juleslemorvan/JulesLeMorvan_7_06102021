@@ -57,32 +57,6 @@ function displayRecipes(recipes) {
 }
 displayRecipes(recipes);
 
-// SEARCH BAR
-
-// searchBar.addEventListener("keyup", (e) => {
-//   const searchString = e.target.value;
-//   const filterRecipe = recipes.filter((recipe) => {
-//     const isInIngredients =
-//       recipe.ingredients.filter((i) =>
-//         i.ingredient.toLowerCase().includes(searchString.toLowerCase())
-//       ).length > 0;
-//     const isInUstensils =
-//       recipe.ustensils.filter((u) =>
-//         u.toLowerCase().includes(searchString.toLowerCase())
-//       ).length > 0;
-//     return (
-//       recipe.name.toLowerCase().includes(searchString.toLowerCase()) ||
-//       recipe.appliance.toLowerCase().includes(searchString.toLowerCase()) ||
-//       isInUstensils ||
-//       isInIngredients
-//     );
-//   });
-
-//   displayRecipes(filterRecipe);
-// });
-
-// 2eme algo
-
 function isNotInRecipes(recipes, id) {
   let value = true;
   for (let i = 0; i < recipes.length; i++) {
@@ -102,7 +76,7 @@ function isNotInRecipes(recipes, id) {
   };
 } */
 
-const matchSearch = (value, search) =>
+const matchSearch = (value, search) => 
   value.toLowerCase().includes(search.toLowerCase());
 
 const needToAddRecipe = (recipe, search) => {

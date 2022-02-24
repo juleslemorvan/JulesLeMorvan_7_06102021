@@ -537,7 +537,27 @@ body * {
     font-size: 15px;
   }
 }
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 512px) {
+  .selectButton {
+    margin-right: 30px;
+    height: 60px;
+    width: 57px;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    font-family: "Lato";
+    font-size: 15px;
+  }
+}
+@media screen and (max-width: 321px) {
+  .select-ingredients {
+    margin-right: 5px;
+  }
+
+  .select-container {
+    margin-left: 0;
+  }
+
   .selectButton {
     margin-right: 30px;
     height: 60px;

@@ -3,9 +3,44 @@
 .select-container {
   display: flex;
   flex-wrap: wrap;
-  margin-left: 135px;
+  margin-left: 150px;
   margin-top: 30px;
   align-items: flex-start;
+}
+
+@media screen and (max-width: 847px) {
+  .select-area {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    height: 150px;
+  }
+}
+
+@media screen and (max-width: 1054px) {
+  .select-container {
+    margin-left: 100px;
+  }
+}
+@media screen and (max-width: 926px) {
+  .select-container {
+    margin-left: 20px;
+  }
+}
+@media screen and (max-width: 635px) {
+  .select-container {
+    display: flex;
+    margin: 0;
+    justify-content: center;
+    align-items: center;
+    margin: 0 10x;
+    flex-wrap: nowrap;
+  }
+}
+@media screen and (max-width: 375px) {
+  .select-container {
+    margin-left: 24px;
+  }
 }
 
 .selectButton {
@@ -17,6 +52,42 @@
   color: white;
   font-family: "Lato";
   font-size: 25px;
+}
+@media screen and (max-width: 847px) {
+  .selectButton {
+    margin-right: 30px;
+    height: 80px;
+    width: 130px;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    font-family: "Lato";
+    font-size: 25px;
+  }
+}
+@media screen and (max-width: 635px) {
+  .selectButton {
+    margin-right: 30px;
+    height: 60px;
+    width: 100px;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    font-family: "Lato";
+    font-size: 15px;
+  }
+}
+@media screen and (max-width: 425px) {
+  .selectButton {
+    margin-right: 30px;
+    height: 60px;
+    width: 57px;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    font-family: "Lato";
+    font-size: 15px;
+  }
 }
 
 .ingredients {

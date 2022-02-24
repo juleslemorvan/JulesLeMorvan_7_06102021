@@ -10,6 +10,27 @@
   column-gap: 15px;
   row-gap: 25px;
 }
+@media screen and (max-width: 960px) {
+  .recipeContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 30px 100px 0 100px;
+    column-gap: 40px;
+    row-gap: 25px;
+    margin: 30px 0;
+  }
+}
+
+@media screen and (max-width: 525px) {
+  .recipeContainer {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin: 0;
+    column-gap: 40px;
+    row-gap: 25px;
+    margin-bottom: 30px;
+  }
+}
 
 .recipe {
   height: 300px;

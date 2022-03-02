@@ -1,5 +1,3 @@
-console.log(recipes);
-
 const searchBar = document.getElementById("searchInput");
 let searchString = "";
 console.log(recipes);
@@ -68,15 +66,7 @@ function isNotInRecipes(recipes, id) {
   return value;
 }
 
-/* function debounce(callback, delay) {
-  let timeout;
-  return function () {
-    clearTimeout(timeout);
-    timeout = setTimeout(callback, delay);
-  };
-} */
-
-const matchSearch = (value, search) => 
+const matchSearch = (value, search) =>
   value.toLowerCase().includes(search.toLowerCase());
 
 const needToAddRecipe = (recipe, search) => {

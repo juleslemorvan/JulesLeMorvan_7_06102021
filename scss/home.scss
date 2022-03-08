@@ -15,6 +15,10 @@ body * {
   margin: 60px 40px;
 }
 @media screen and (max-width: 415px) {
+  .body {
+    margin: 15px;
+  }
+
   .header {
     margin: 60px 0;
   }

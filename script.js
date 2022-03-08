@@ -57,6 +57,7 @@ displayRecipes(recipes);
 // SEARCH BAR
 
 searchBar.addEventListener("keyup", (e) => {
+  var t0 = performance.now();
   const searchString = e.target.value;
   const filterRecipe = recipes.filter((recipe) => {
     const isInIngredients =
@@ -76,4 +77,8 @@ searchBar.addEventListener("keyup", (e) => {
   });
 
   displayRecipes(filterRecipe);
+  var t1 = performance.now();
+  console.log(
+    "L'appel de doSomething a demandé " + (t1 - t0) + " millisecondes."
+  );
 });

@@ -2,13 +2,13 @@
 
 // Function OPEN SELECT BUTTON
 
-function OpenDropDownButton() {
+function initDropDownButtons() {
   const selectButtons = document.querySelectorAll(".selectButton");
   const inputIngredient = document.getElementById(
     "form-searchIngredient-input"
   );
   inputIngredient.addEventListener("input", (e) => {
-    setIngredientFromData(e.target.value);
+    setIngredientsFromData(e.target.value);
   });
   const inputAppliance = document.getElementById("form-searchAppareil-input");
   inputAppliance.addEventListener("input", (e) => {
@@ -40,7 +40,7 @@ function OpenDropDownButton() {
   });
 }
 
-OpenDropDownButton();
+initDropDownButtons();
 
 // FUNCTION CLOSE SELECT BUTTON
 
@@ -150,7 +150,7 @@ const loadClickFilter = ({ filterName, addFilter, removeFilter }) => {
 
 // FUNCTION GET ALL INGREDIENTS
 
-function setIngredientFromData(search = "") {
+function setIngredientsFromData(search = "") {
   const listOfIngredients = document.getElementById("listOfIngredients");
   listOfIngredients.innerHTML = "";
   const allIngredients = new Set();

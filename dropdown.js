@@ -184,11 +184,11 @@ function setAppliancesFromData(search = "") {
   const allAppliances = new Set();
 
   recipes.forEach((recipe) => {
-    recipe.appliances.forEach((value) => {
-      if (value.appliance.toLowerCase().includes(search.toLowerCase())) {
-        allAppliances.add(value.appliance);
-      }
-    });
+    console.log(recipe);
+
+    if (recipe.appliance.toLowerCase().includes(search.toLowerCase())) {
+      allAppliances.add(recipe.appliance);
+    }
   });
 
   allAppliances.forEach((appliance) => {
@@ -212,9 +212,9 @@ function setUstensilesFromData(search = "") {
   const allUstensils = new Set();
 
   recipes.forEach((recipe) => {
-    recipe.ustensils.forEach((value) => {
-      if (value.ustensil.toLowerCase().includes(search.toLowerCase())) {
-        allUstensils.add(value.ustensil);
+    recipe.ustensils.forEach((ustensil) => {
+      if (ustensil.toLowerCase().includes(search.toLowerCase())) {
+        allUstensils.add(ustensil);
       }
     });
   });

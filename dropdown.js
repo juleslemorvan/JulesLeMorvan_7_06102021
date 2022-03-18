@@ -24,7 +24,7 @@ function initDropDownButtons() {
       selectButton.nextSibling.nextSibling.style.display = "block";
       switch (selectButton.getAttribute("name")) {
         case "ingredient":
-          setIngredientFromData();
+          setIngredientsFromData();
           listOfIngredients.style.display = "grid";
           break;
         case "appareils":

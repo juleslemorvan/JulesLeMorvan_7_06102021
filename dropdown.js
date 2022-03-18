@@ -109,24 +109,6 @@ function filterRecipes() {
   displayRecipes(nextRecipes);
 }
 
-/* 
-
-const props = {
-  filterName: ...,
-  addFilter: ...,
-  removeFilter: ...
-}
-loadClickFilter(props)
-
-const loadClickFilter = ({filterName, addFilter, removeFilter}) => {
-  props.filterName
-  props.addFilter
-  props.removeFilter
-  ....
-}
-
-*/
-
 const loadClickFilter = ({ filterName, addFilter, removeFilter }) => {
   const items = document.querySelectorAll(`.${filterName}Item`);
 
@@ -166,14 +148,6 @@ const loadClickFilter = ({ filterName, addFilter, removeFilter }) => {
   });
 };
 
-/* 
-1. récupérer le container de la liste des ingredients
-2. récupérer les recettes
-3. Ajouter tous les ingrédients des recettes dans le container
-  3.1 Pour chaque recette, ajouter ses ingrédients dans le container de la liste
-  3.2 S'assurer qu'on a pas mis deux fois la même chose
-*/
-
 // FUNCTION GET ALL INGREDIENTS
 
 function setIngredientFromData(search = "") {
@@ -204,12 +178,6 @@ function setIngredientFromData(search = "") {
 
 // FUNCTION GET ALL APPLIANCE
 
-/* 
-1. récupérer le container de la liste des appareils
-2. récupérer les recettes
-3. Ajouter l'appareil des recettes dans le container
-*/
-
 function setAppliancesFromData(search = "") {
   const listOfAppliances = document.getElementById("listOfAppareils");
   listOfAppliances.innerHTML = "";
@@ -237,12 +205,6 @@ function setAppliancesFromData(search = "") {
 }
 
 // FUNCTION GET ALL USTENSILS
-
-/* 
-1. récupérer le container de la liste des ustensils
-2. récupérer les recettes
-3. Ajouter l'appareil des recettes dans le container
-*/
 
 function setUstensilesFromData(search = "") {
   const listOfUstensiles = document.getElementById("listOfUstensiles");

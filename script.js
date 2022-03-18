@@ -35,7 +35,7 @@ function displayRecipes(recipes) {
   <figure class="recipe" id="recipe">
       <a class="recipe_link">
         <div class="recipe__imgContainer">
-          <img src="${recipe.img}" class="recipe__img">
+          <img src="" class="recipe__img">
              </div>
              <figcaption class="description">
                  <div class="description__title">${
@@ -93,6 +93,7 @@ const needToAddRecipe = (recipe, search) => {
 searchBar.addEventListener("keyup", (e) => {
   const searchString = e.target.value;
   const recipesFiltered = [];
+  var t0 = performance.now();
 
   for (let i = 0; i < recipes.length; i++) {
     const currentRecipe = recipes[i];
@@ -105,4 +106,8 @@ searchBar.addEventListener("keyup", (e) => {
   }
 
   displayRecipes(recipesFiltered);
+  var t1 = performance.now();
+  console.log(
+    "L'appel de doSomething a demandé " + (t1 - t0) + " millisecondes."
+  );
 });

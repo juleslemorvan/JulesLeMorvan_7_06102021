@@ -74,7 +74,6 @@ const needToAddRecipe = (recipe, search) => {
 
   for (let j = 0; j < ingredients.length; j++) {
     const { ingredient } = ingredients[j];
-    //  Pour ne pas repeter ingredient.ingredient
     if (matchSearch(ingredient, search)) {
       return true;
     }

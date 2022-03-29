@@ -29,7 +29,13 @@ function displayingredients(ingredients) {
 function displayRecipes(recipes) {
   const recipeContainer = document.getElementById("recipeContainer");
   recipeContainer.innerHTML = "";
-  document.getElementById("nb-result").innerHTML = recipes.length;
+  document.getElementById("nb-result").innerHTML =
+    recipes.length > 1
+      ? `${recipes.length} recettes trouvées`
+      : recipes.length === 1
+      ? "1 recette trouvée"
+      : "Aucune recette trouvée";
+
   recipes.forEach((recipe) => {
     recipeContainer.innerHTML += `
   <figure class="recipe" id="recipe">
@@ -92,21 +98,18 @@ const needToAddRecipe = (recipe, search) => {
 searchBar.addEventListener("keyup", (e) => {
   const searchString = e.target.value;
   const recipesFiltered = [];
-  var t0 = performance.now();
 
-  for (let i = 0; i < recipes.length; i++) {
-    const currentRecipe = recipes[i];
-    if (
-      isNotInRecipes(recipesFiltered, currentRecipe.id) &&
-      needToAddRecipe(currentRecipe, searchString)
-    ) {
-      recipesFiltered.push(currentRecipe);
+  if (searchString.length >= 3 || searchString.length === 0) {
+    for (let i = 0; i < recipes.length; i++) {
+      const currentRecipe = recipes[i];
+      if (
+        isNotInRecipes(recipesFiltered, currentRecipe.id) &&
+        needToAddRecipe(currentRecipe, searchString)
+      ) {
+        recipesFiltered.push(currentRecipe);
+      }
     }
-  }
 
-  displayRecipes(recipesFiltered);
-  var t1 = performance.now();
-  console.log(
-    "L'appel de doSomething a demandé " + (t1 - t0) + " millisecondes."
-  );
+    displayRecipes(recipesFiltered);
+  }
 });

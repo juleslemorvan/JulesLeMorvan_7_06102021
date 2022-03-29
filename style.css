@@ -195,9 +195,9 @@ select {
  * Correct the inability to style clickable types in iOS and Safari.
  */
 button,
-[type=button],
-[type=reset],
-[type=submit] {
+[type="button"],
+[type="reset"],
+[type="submit"] {
   -webkit-appearance: button;
 }
 
@@ -205,9 +205,9 @@ button,
  * Remove the inner border and padding in Firefox.
  */
 button::-moz-focus-inner,
-[type=button]::-moz-focus-inner,
-[type=reset]::-moz-focus-inner,
-[type=submit]::-moz-focus-inner {
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
   border-style: none;
   padding: 0;
 }
@@ -216,9 +216,9 @@ button::-moz-focus-inner,
  * Restore the focus styles unset by the previous rule.
  */
 button:-moz-focusring,
-[type=button]:-moz-focusring,
-[type=reset]:-moz-focusring,
-[type=submit]:-moz-focusring {
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
   outline: 1px dotted ButtonText;
 }
 
@@ -272,8 +272,8 @@ ul {
  * 1. Add the correct box sizing in IE 10.
  * 2. Remove the padding in IE 10.
  */
-[type=checkbox],
-[type=radio] {
+[type="checkbox"],
+[type="radio"] {
   box-sizing: border-box;
   /* 1 */
   padding: 0;
@@ -283,8 +283,8 @@ ul {
 /**
  * Correct the cursor style of increment and decrement buttons in Chrome.
  */
-[type=number]::-webkit-inner-spin-button,
-[type=number]::-webkit-outer-spin-button {
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
   height: auto;
 }
 
@@ -292,7 +292,7 @@ ul {
  * 1. Correct the odd appearance in Chrome and Safari.
  * 2. Correct the outline style in Safari.
  */
-[type=search] {
+[type="search"] {
   -webkit-appearance: textfield;
   /* 1 */
   outline-offset: -2px;
@@ -302,7 +302,7 @@ ul {
 /**
  * Remove the inner padding in Chrome and Safari on macOS.
  */
-[type=search]::-webkit-search-decoration {
+[type="search"]::-webkit-search-decoration {
   -webkit-appearance: none;
 }
 
@@ -350,7 +350,7 @@ template {
 }
 
 body {
-  margin: 30px;
+  margin: 30px 100px;
 }
 
 body * {
@@ -366,6 +366,22 @@ body * {
   margin: 60px 40px;
 }
 
+@media screen and (max-width: 1000px) {
+  body {
+    margin: 15px 30px;
+  }
+}
+
+@media screen and (max-width: 415px) {
+  .header {
+    margin: 60px 0;
+  }
+}
+@media screen and (max-width: 336px) {
+  .header {
+    margin: 60px 0;
+  }
+}
 .header_logo {
   width: 60px;
   align-items: center;
@@ -384,7 +400,6 @@ body * {
 /* section SEARCH */
 .numberOfRecipe {
   margin: 0 auto;
-  width: 80%;
 }
 
 .nb-result {
@@ -409,26 +424,54 @@ body * {
   align-items: center;
   background: #e7e7e7;
   border: transparent;
-  width: 80%;
+  width: 100%;
   height: 70px;
   border-radius: 4px;
   padding: 30px;
 }
 
+.searchInput::placeholder {
+  margin-right: 30px;
+}
+
 .search-icon {
   position: absolute;
-  right: 10rem;
-  top: 1.3rem;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
   font-size: 27px;
   opacity: 0.8;
+}
+
+@media screen and (max-width: 957px) {
+  .searchInput {
+    width: 100%;
+  }
 }
 
 .select-container {
   display: flex;
   flex-wrap: wrap;
-  margin-left: 135px;
   margin-top: 30px;
   align-items: flex-start;
+}
+
+@media screen and (max-width: 847px) {
+  .select-area {
+    position: relative;
+    display: flex;
+    height: 150px;
+  }
+}
+
+@media screen and (max-width: 635px) {
+  .select-container {
+    display: flex;
+    margin: 0;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+  }
 }
 
 .selectButton {
@@ -442,6 +485,62 @@ body * {
   font-size: 25px;
 }
 
+@media screen and (max-width: 847px) {
+  .selectButton {
+    margin-right: 30px;
+    height: 80px;
+
+    border-radius: 5px;
+    border: none;
+    color: white;
+    font-family: "Lato";
+    font-size: 25px;
+  }
+}
+@media screen and (max-width: 635px) {
+  .selectButton {
+    margin-right: 30px;
+    height: 60px;
+    width: 100px;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    font-family: "Lato";
+    font-size: 15px;
+  }
+}
+@media screen and (max-width: 512px) {
+  .selectButton {
+    margin-right: 30px;
+    height: 60px;
+    width: 57px;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    font-family: "Lato";
+    font-size: 15px;
+  }
+}
+@media screen and (max-width: 321px) {
+  .select-ingredients {
+    margin-right: 5px;
+  }
+
+  .select-container {
+    margin-left: 0;
+  }
+
+  .selectButton {
+    margin-right: 30px;
+    height: 60px;
+    width: 57px;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    font-family: "Lato";
+    font-size: 15px;
+  }
+}
 .ingredients {
   background: #3282f7;
 }
@@ -686,11 +785,31 @@ body * {
 .recipeContainer {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  margin: 30px 100px 0 100px;
+  margin-top: 30px;
   column-gap: 15px;
   row-gap: 25px;
 }
 
+@media screen and (max-width: 960px) {
+  .recipeContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 30px;
+    column-gap: 40px;
+    row-gap: 25px;
+    margin: 30px 0;
+  }
+}
+@media screen and (max-width: 525px) {
+  .recipeContainer {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin: 0;
+    column-gap: 40px;
+    row-gap: 25px;
+    margin-bottom: 30px;
+  }
+}
 .recipe {
   height: 300px;
   border: 1px solid black;
@@ -711,7 +830,7 @@ body * {
   height: 45%;
   display: flex;
   flex-direction: column;
-  font-size: 10px;
+  font-size: 12px;
   padding: 10px;
   background: #e7e7e7;
   line-height: 0.9rem;

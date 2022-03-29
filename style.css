@@ -5,7 +5,21 @@
  * 1. Correct the line height in all browsers.
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
-@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap");
+@font-face {
+  font-family: "Lato-Regular";
+  src: url("./assets/font/Lato-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Lato-Bold";
+  src: url("./assets/font/Lato-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Roboto-Regular";
+  src: url("./assets/font/Roboto-Regular.ttf") format("truetype");
+}
+
 * {
   list-style: none;
   text-decoration: none;
@@ -15,6 +29,7 @@ html {
   line-height: 1.15;
   /* 1 */
   -webkit-text-size-adjust: 100%;
+
   /* 2 */
 }
 
@@ -481,7 +496,7 @@ body * {
   border-radius: 5px;
   border: none;
   color: white;
-  font-family: "Lato";
+  font-family: Lato-Regular;
   font-size: 25px;
 }
 
@@ -493,7 +508,7 @@ body * {
     border-radius: 5px;
     border: none;
     color: white;
-    font-family: "Lato";
+    font-family: Lato-Regular;
     font-size: 25px;
   }
 }
@@ -505,7 +520,7 @@ body * {
     border-radius: 5px;
     border: none;
     color: white;
-    font-family: "Lato";
+    font-family: Lato-Regular;
     font-size: 15px;
   }
 }
@@ -517,7 +532,7 @@ body * {
     border-radius: 5px;
     border: none;
     color: white;
-    font-family: "Lato";
+    font-family: Lato-Regular;
     font-size: 15px;
   }
 }
@@ -537,7 +552,7 @@ body * {
     border-radius: 5px;
     border: none;
     color: white;
-    font-family: "Lato";
+    font-family: Lato-Regular;
     font-size: 15px;
   }
 }
@@ -857,8 +872,14 @@ body * {
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
+  font-family: Lato-Regular;
   padding: 0;
   margin: 0;
+}
+
+.ingredientName {
+  display: inline;
+  font-family: Lato-Bold;
 }
 
 .preparation {
@@ -868,6 +889,7 @@ body * {
   overflow: hidden;
   text-overflow: ellipsis;
   margin: 0;
+  font-family: Roboto-Regular;
 }
 
 /*# sourceMappingURL=style.css.map */

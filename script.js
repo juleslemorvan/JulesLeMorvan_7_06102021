@@ -79,9 +79,9 @@ function displayingredients(ingredients) {
            ${ingredients
              .map(({ ingredient, quantity, unit }) => {
                return `
-            <li>${ingredient} ${quantity ? quantity : " "} ${
-                 unit ? unit : " "
-               }</li>
+            <li><div class="ingredientName">${ingredient}: </div>${
+                 quantity ? quantity : " "
+               } ${unit ? unit : " "}</li>
             `;
              })
              .join(" ")}

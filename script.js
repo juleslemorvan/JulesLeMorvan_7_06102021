@@ -10,35 +10,33 @@ let ustensilTags = [];
 
 const searchBar = document.getElementById("searchInput");
 searchBar.addEventListener("keyup", (e) => {
-  var t0 = performance.now();
   const searchString = e.target.value;
-  const filterRecipe = recipes.filter((recipe) => {
-    const isInIngredients =
-      recipe.ingredients.filter(({ ingredient }) =>
-        ingredient.toLowerCase().includes(searchString.toLowerCase())
-      ).length > 0;
 
-    const isInUstensils =
-      recipe.ustensils.filter((ustensil) =>
-        ustensil.toLowerCase().includes(searchString.toLowerCase())
-      ).length > 0;
+  if (searchString.length >= 3 || searchString.length === 0) {
+    const filterRecipe = recipes.filter((recipe) => {
+      const isInIngredients =
+        recipe.ingredients.filter(({ ingredient }) =>
+          ingredient.toLowerCase().includes(searchString.toLowerCase())
+        ).length > 0;
 
-    const isInName = recipe.name
-      .toLowerCase()
-      .includes(searchString.toLowerCase());
+      const isInUstensils =
+        recipe.ustensils.filter((ustensil) =>
+          ustensil.toLowerCase().includes(searchString.toLowerCase())
+        ).length > 0;
 
-    const isInAppliance = recipe.appliance
-      .toLowerCase()
-      .includes(searchString.toLowerCase());
+      const isInName = recipe.name
+        .toLowerCase()
+        .includes(searchString.toLowerCase());
 
-    return isInName || isInAppliance || isInUstensils || isInIngredients;
-  });
+      const isInAppliance = recipe.appliance
+        .toLowerCase()
+        .includes(searchString.toLowerCase());
 
-  displayRecipes(filterRecipe);
-  var t1 = performance.now();
-  console.log(
-    "L'appel de doSomething a demandé " + (t1 - t0) + " millisecondes."
-  );
+      return isInName || isInAppliance || isInUstensils || isInIngredients;
+    });
+
+    displayRecipes(filterRecipe);
+  }
 });
 
 // GET ALL RECIPES
@@ -46,7 +44,13 @@ searchBar.addEventListener("keyup", (e) => {
 function displayRecipes(recipes) {
   const recipeContainer = document.getElementById("recipeContainer");
   recipeContainer.innerHTML = "";
-  document.getElementById("nb-result").innerHTML = recipes.length;
+  document.getElementById("nb-result").innerHTML =
+    recipes.length > 1
+      ? `${recipes.length} recettes trouvées`
+      : recipes.length === 1
+      ? "1 recette trouvée"
+      : "Aucune recette trouvée";
+
   recipes.forEach(({ img, name, time, ingredients, description }) => {
     recipeContainer.innerHTML += `
   <figure class="recipe" id="recipe">
